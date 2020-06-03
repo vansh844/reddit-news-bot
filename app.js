@@ -25,7 +25,7 @@ const summon=(msg)=>{
 }
 
 const comments=new CommentStream(client,{
-    subreddit:'all',
+    subreddit:'testingground4bots',
     limit:100,
     pollTime:10000
 })
@@ -35,13 +35,13 @@ comments.on('item',(comment)=>{
 
     const str=comment.body.replace('/u/reddit-news-bot','').trim()
     if(str===''){
-        comment.reply('Write keywords or phrases, followed by my by username, to search for news articles')
+        comment.reply('Write keywords or phrases, followed by my username, to search for news articles')
     }else{
         news(str).then((data)=>{
             if(data.articles.length===0){
                 comment.reply('No artcile found.')
             }else{
-                comment.reply(`Title: ${data.articles[0].title}`)
+                comment.reply(`Title: ${data.articles[0].title} URL: ${data.articles[0].url}`)
             }  
         })
         console.log(str)
