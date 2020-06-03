@@ -25,9 +25,9 @@ const summon=(msg)=>{
 }
 
 const comments=new CommentStream(client,{
-    subreddit:'testingground4bots',
+    subreddit:'all',
     limit:100,
-    pollTime:2000
+    pollTime:10000
 })
 
 comments.on('item',(comment)=>{
